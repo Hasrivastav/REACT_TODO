@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import {Context, server} from "../main"
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
+
 const Header = () => {
 
   const {isAuthenticated,setIsAuthenticated,loading,setLoading} =   useContext(Context);
@@ -31,18 +32,19 @@ await axios.get(`${server}/users/logout`,
        <div>
         <h2>TODO APP</h2>
        </div>
-       <article>
+       
+       <article >
         <Link to={"/"}>Home</Link>
         <Link to={"/profile"}>Profile</Link> 
         {
           isAuthenticated?  <button disabled={loading} onClick={logoutHandler} className='btn'>Logout</button> :  <Link to={"/login"}>Login</Link>  
         }
+       </article>
        
-
-        </article>
 
     </nav>
   )
 }
 
 export default Header
+
