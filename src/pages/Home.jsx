@@ -18,7 +18,7 @@ const [refresh,setRefresh]=useState(false);
 
 const {isAuthenticated} =  useContext(Context);
 
-if(!isAuthenticated) return <Navigate to="/login" />
+
 const updateHandler=async (id)=>{
 
   try {
@@ -88,6 +88,7 @@ axios.get(`${server}/task/my`,{
   
 }, [refresh])
 
+  if(!isAuthenticated) return <Navigate to="/login" />
 
   return (
     <div className="container">
